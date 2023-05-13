@@ -38,3 +38,8 @@ def Ajax(request):
 
         return JsonResponse({'data': response,})
     return JsonResponse({})
+
+@csrf_exempt
+def ajax_remove_data(request):
+    chats = Chat.objects.all().delete()
+    return render(request, 'chat.html')
